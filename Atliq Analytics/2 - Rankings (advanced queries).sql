@@ -2,8 +2,8 @@
 ## PRODUCT OWNER TASK 6: Get 1. Top markets, 2. Top products 3. Top customers, by net sales for a given financial year.
 
 #** Found the fiscal year User Defined Function was slowing down the query. The query will get bigger and bigger as we do more joins. We can remove the UDF by:
-#** 1. Creating a table with fiscal year data from an excel file and joining it or; 2. Create a fiscal year column on fact_sales_monthly saving us from annother join.
-## 1. Get Pre Invoice Discount. Replaced get_fiscal_year UDF by generating a table with fiscal_year and joining it to optiize duration time.
+#** 1. Creating a table with fiscal year data from an excel file and joining it or; 2. Create a fiscal year column on fact_sales_monthly saving us from another join.
+## 1. Get Pre Invoice Discount. Replaced get_fiscal_year UDF by generating a table with fiscal_year and joining it to optimize duration time.
 SELECT s.date, s.product_code, s.customer_code,
 p.product, p.variant, s.sold_quantity,
 g.gross_price as gross_price_per_item,
@@ -22,7 +22,7 @@ ON pre.fiscal_year = get_fiscal_year(s.date) and
 pre.customer_code = s.customer_code
 WHERE get_fiscal_year(s.date) = 2021;
 
-## 2. We removed the join from the step above (dim_date) as we created fiscal year column on fact_sales_monthly. We added CTE to perform net_invoice_sales calc - not ideal when more columns are comming
+## 2. We removed the join from the step above (dim_date) as we created fiscal year column on fact_sales_monthly. We added CTE to perform net_invoice_sales calc - not ideal when more columns are coming
 WITH cte1 as (
 SELECT s.date, s.product_code, s.customer_code,
 p.product, p.variant, s.sold_quantity,
