@@ -8,8 +8,6 @@ The project is organized into two scripts:
 1. `1 - GS for X customer` – Product-level and customer sales analysis (Tasks 1-5) 
 2. `2 - Rankings (advanced queries)` – Market share, net sales, and top-performer analysis (Tasks 6-9)
 
-All tasks and their corresponding queries are documented in **Project_Tasks_Documentation.pdf**.
-
 ---
 
 ## Product Owner Tasks (Highlights)
